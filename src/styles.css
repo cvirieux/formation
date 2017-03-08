@@ -14,3 +14,7 @@ body {
       footer {
           margin: 50px 0;
       }
+
+.last{
+    background-color: rgba(255, 0, 0, 0.4);
+}

@@ -16,17 +16,14 @@
       </div>
 
       <div class="row text-center">
-        <app-product [product]='products[0]' (addToBasketEvent)="updateTotal($event)"></app-product>
-        <app-product [product]='products[1]' (addToBasketEvent)="updateTotal($event)"></app-product>
-        <app-product [product]='products[2]' (addToBasketEvent)="updateTotal($event)"></app-product>
-        <app-product [product]='products[3]' (addToBasketEvent)="updateTotal($event)" ></app-product>
-        
+        <div *ngFor="let prod of products">
+         <app-product *ngIf="prod.stock>0" [product]="prod" (addToBasketEvent)="updateTotal($event)"></app-product>       
+        </div>
       </div>
 
       <hr>
-      <ng-content select="footer"></ng-content>
-      <footer>
+      <app-footer>
           Copyright &copy; Your Website 2016
-      </footer>
+      </app-footer>
 
     </div>

@@ -8,15 +8,24 @@ import { Product } from '../model/product';
 })
 export class ProductComponent implements OnInit {
   @Input() product : Product;
+
  
   @Output() addToBasketEvent = new EventEmitter<number>();
   constructor() { 
 
   }
   addToBasket():void{
+    this.product.stock--;
     this.addToBasketEvent.emit(this.product.price);
   }
   ngOnInit() {
   }
 
+  isLast():boolean{
+    if(this.product.stock === 1){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
