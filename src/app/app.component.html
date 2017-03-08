@@ -1,3 +1,32 @@
-<h1>
-  {{title}}
-</h1>
+<app-menu>Chargement menu</app-menu> 
+ <div class="container">
+
+      <header class="jumbotron hero-spacer">
+          <h1>Bienvenue sur Zenika Ecommerce</h1>
+          <p>Votre panier s'élève à {{total}}€</p>
+          <p><a class="btn btn-primary btn-large">Voir mon panier</a></p>
+      </header>
+
+      <hr>
+
+      <div class="row">
+          <div class="col-lg-12">
+              <h3>Derniers Produits</h3>
+          </div>
+      </div>
+
+      <div class="row text-center">
+        <app-product [product]='products[0]' (addToBasketEvent)="updateTotal($event)"></app-product>
+        <app-product [product]='products[1]' (addToBasketEvent)="updateTotal($event)"></app-product>
+        <app-product [product]='products[2]' (addToBasketEvent)="updateTotal($event)"></app-product>
+        <app-product [product]='products[3]' (addToBasketEvent)="updateTotal($event)" ></app-product>
+        
+      </div>
+
+      <hr>
+      <ng-content select="footer"></ng-content>
+      <footer>
+          Copyright &copy; Your Website 2016
+      </footer>
+
+    </div>
