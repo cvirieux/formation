@@ -8,16 +8,15 @@ import { Product } from '../model/product';
 })
 export class ProductComponent implements OnInit {
   @Input() product : Product;
+  @Output() addToBasketEvent = new EventEmitter<Product>();
 
- 
-  @Output() addToBasketEvent = new EventEmitter<number>();
-  constructor() { 
+  constructor() {  }
 
-  }
   addToBasket():void{
     this.product.stock--;
-    this.addToBasketEvent.emit(this.product.price);
+    this.addToBasketEvent.emit(this.product);
   }
+  
   ngOnInit() {
   }
 

@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProductService } from './service/product.service';
+import { CustomerService } from './service/customer.service';
+
+let titleInject: string = 'Bienvenue sur Zenika Ecommerce';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    ProductService,
+    CustomerService,
+    [{provide: 'title', useValue:titleInject}]
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
