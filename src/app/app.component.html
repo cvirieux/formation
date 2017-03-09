@@ -17,7 +17,7 @@
 
       <div class="row text-center">
         <div *ngFor="let prod of products">
-         <app-product *ngIf="prod.stock>0" [product]="prod" (addToBasketEvent)="updateTotal($event)"></app-product>       
+         <app-product *ngIf="isProdAvailable(prod.title)" [product]="prod" (addToBasketEvent)="updateTotal($event)"></app-product>       
         </div>
       </div>
 

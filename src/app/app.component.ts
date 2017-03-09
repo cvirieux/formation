@@ -11,7 +11,7 @@ import { CustomerService } from './service/customer.service';
 export class AppComponent implements OnInit {
   products:Product[];
   @Input() total : number = 0;
-  
+
   constructor(private productService : ProductService, private customerService : CustomerService, @Inject('title') public bienvenue:string){  }
   
   ngOnInit(){
@@ -21,5 +21,9 @@ export class AppComponent implements OnInit {
   updateTotal(product : number){
     this.customerService.addProduct(product);
     this.total = this.customerService.getTotal();
+  }
+
+  isProdAvailable(title : string) : boolean {
+    return this.productService.isAvailable(title);
   }
 }
