@@ -8,7 +8,7 @@ import { Product } from './model/product';
 })
 export class SortProductPipe implements PipeTransform {
 
-  transform(value: Product[], args?: any): Product[] {$
+  transform(value: Product[], args?: any): Product[] {
     return value.sort(function(a: Product, b: Product){
       if(a[args]<b[args]){
         return -1;
