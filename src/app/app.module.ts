@@ -13,6 +13,7 @@ import { ProductService } from './service/product.service';
 import { CustomerService } from './service/customer.service';
 import { SortProductPipe } from './pipe/sort-product.pipe';
 
+import './rxjs-operators'; //import des operateurs RxJS
 let titleInject: string = 'Bienvenue sur Zenika Ecommerce';
 
 @NgModule({
