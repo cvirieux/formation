@@ -1,4 +1,4 @@
-import { SortProductPipe } from './sort-product.pipe';
+import { SortProductPipe } from '../pipe/sort-product.pipe';
 
 describe('SortProductPipe', () => {
   it('create an instance', () => {

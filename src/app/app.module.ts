@@ -11,7 +11,7 @@ import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductService } from './service/product.service';
 import { CustomerService } from './service/customer.service';
-import { SortProductPipe } from './sort-product.pipe';
+import { SortProductPipe } from './pipe/sort-product.pipe';
 
 let titleInject: string = 'Bienvenue sur Zenika Ecommerce';
 
