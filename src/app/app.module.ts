@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductService } from './service/product.service';
 import { CustomerService } from './service/customer.service';
 import { SortProductPipe } from './pipe/sort-product.pipe';
+import {AuthAccessService} from './service/auth-access.service';
 
 import './rxjs-operators'; //import des operateurs RxJS
 
@@ -47,6 +48,7 @@ let titleInject: string = 'Bienvenue sur Zenika Ecommerce';
   providers: [
     ProductService,
     CustomerService,
+    AuthAccessService,
     UpperCasePipe,
     [{provide: 'title', useValue:titleInject}, { provide: LOCALE_ID, useValue: 'fr-FR' }]
   ],
