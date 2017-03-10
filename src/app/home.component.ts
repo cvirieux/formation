@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
   
   ngOnInit(){
     this.productService.getProducts().subscribe((prod:Product[]) => this.products = prod);
-    this.customerService.getTotal().subscribe(total => this.total = total);
+    this.customerService.getBasket()
+      .switchMap(() => this.customerService.getTotal())
+      .subscribe(total => this.total = total);
   }
 
   addToBasket(product : number){

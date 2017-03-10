@@ -36,4 +36,7 @@ export class CustomerService {
         return total;
     })
   }
+  checkout(customer):Observable<Response>{
+    return this.http.post('http://localhost:8080/rest/basket/confirm', customer);
+  }
 }

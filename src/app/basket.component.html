@@ -9,3 +9,19 @@
             </div>
         </div>
 </div>
+
+<div class="col-md-3 col-sm-6 hero-feature">
+    <form #myForm="ngForm" novalidate (submit)="onSubmit(myForm.value)">
+        <label class="control-label" for="name">Name</label>
+        <input [ngClass]="{'has-error' : !nameInput.valid}" type="text" name="name" [(ngModel)]="customer.name" #nameInput="ngModel" required class="form-control">
+        
+        <label class="control-label" for="address">Address</label>
+        <input [ngClass]="{'has-error' : !addressInput.valid}" type="text" name="address" [(ngModel)]="customer.address" #addressInput="ngModel" required class="form-control">
+        
+        <label class="control-label" for="creditCard">Credit Card Number</label>
+        <input [ngClass]="{'has-error' : !creditCardInput.valid}" type="text" name="creditCard" [(ngModel)]="customer.creditCard"
+         #creditCardInput="ngModel" required class="form-control" pattern="^[0-9]{3}-[0-9]{3}$">
+        <span [hidden]="!creditCardInput.errors?.pattern">Invalid pattern. Example : 123-456</span>
+        <button type="submit" [disabled]="!myForm.valid">Checkout</button>
+    </form>
+</div>
