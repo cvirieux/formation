@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { UpperCasePipe } from '@angular/common'
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+import { BasketComponent } from './basket.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,12 +16,23 @@ import { CustomerService } from './service/customer.service';
 import { SortProductPipe } from './pipe/sort-product.pipe';
 
 import './rxjs-operators'; //import des operateurs RxJS
+
+import { RouterModule, Routes } from '@angular/router';
+
+
+export const routes: Routes = [
+{ path: '', component: HomeComponent }, // path: '/'
+{ path: 'basket', component: BasketComponent }
+
+];
 let titleInject: string = 'Bienvenue sur Zenika Ecommerce';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    HomeComponent,
+    BasketComponent,
     ProductComponent,
     FooterComponent,
     SortProductPipe
@@ -27,7 +40,9 @@ let titleInject: string = 'Bienvenue sur Zenika Ecommerce';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     ProductService,

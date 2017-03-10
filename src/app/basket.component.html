@@ -1,0 +1,11 @@
+<div *ngFor="let prod of (basket | sortProduct:'title')">
+    <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <img src="{{prod.photo}}" alt="">
+                <div class="caption">
+                    <h3>{{prod.title}}  - {{prod.price | currency:'EUR':true:'1.2-2'}} </h3>
+                    <p>{{prod.description}} </p>
+                </div>
+            </div>
+        </div>
+</div>

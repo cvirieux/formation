@@ -4,6 +4,7 @@ import {Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs';
  
 import {Observable} from 'rxjs/Observable';
 
@@ -24,12 +25,15 @@ export class CustomerService {
       .map(json => json.map(item => Product.create(item)))
       .map(products => this.myProducts = products);
   }
-  getTotal(prodTot:Product[]): number {
+  getTotal(): Observable<number> {
+    const basketObs = this.myProducts.length ? Observable.of(this.myProducts) : this.getBasket();
 
-    let total : number = 0;
-    for (let prod of prodTot) {
-      total = total + prod.price;
-    }
-    return total;
+    return basketObs.map(() => {
+        let total : number = 0;
+        for (let prod of this.myProducts) {
+          total = total + prod.price;
+        }
+        return total;
+    })
   }
 }
